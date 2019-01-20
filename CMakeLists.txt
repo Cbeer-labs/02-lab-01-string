@@ -50,6 +50,8 @@ target_link_libraries(demo ${PROJECT_NAME})
 if(BUILD_TESTS)
   add_executable(tests
     # TODO: enum your files and delete this comment
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/string_unittest.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/example.cpp
   )
   target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
