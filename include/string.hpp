@@ -107,6 +107,8 @@ class String {
   /// <param name="symbol"> Значение символов, которе отрезаем </param>
   void LTrim(char symbol);
 
+  void swap(String& oth);
+
   friend std::ostream& operator<<(std::ostream&, const String&);
 
  private:

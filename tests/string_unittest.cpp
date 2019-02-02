@@ -108,3 +108,19 @@ TEST(String, Stream) {
 
   EXPECT_EQ("some string and stream", ss.str());
 }
+
+TEST(String, ConstructAssign) {
+  const char* data = ;
+
+  String s0("some string");
+  String s1("other string");
+  
+
+  EXPECT_EQ("some string", s0);
+  EXPECT_EQ("other string", s1);
+
+  s0.swap(s1);
+
+  EXPECT_EQ("other string", s0);
+  EXPECT_EQ("some string", s1);
+}
