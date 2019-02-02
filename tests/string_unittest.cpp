@@ -110,8 +110,6 @@ TEST(String, Stream) {
 }
 
 TEST(String, ConstructAssign) {
-  const char* data = ;
-
   String s0("some string");
   String s1("other string");
   
