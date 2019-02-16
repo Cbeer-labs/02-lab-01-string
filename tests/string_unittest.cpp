@@ -28,9 +28,9 @@ TEST(String, GetByIndex) {
 
   const String s1(data);
 
-  EXPECT_EQ('s', s[0]);
-  EXPECT_EQ('m', s[2]);
-  EXPECT_EQ('s', s[5]);
+  EXPECT_EQ('s', s1[0]);
+  EXPECT_EQ('m', s1[2]);
+  EXPECT_EQ('s', s1[5]);
 
   String s(data);
   s[2] = 'M';
