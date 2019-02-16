@@ -109,7 +109,7 @@ TEST(String, Stream) {
   EXPECT_EQ("some string and stream", stream.str());
 }
 
-TEST(String, ConstructAssign) {
+TEST(String, Swap) {
   String s0("some string");
   String s1("other string");
   
