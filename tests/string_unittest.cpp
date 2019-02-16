@@ -106,7 +106,7 @@ TEST(String, Stream) {
   String s1("some string");
   stream << s1 << " and " << String("stream");
 
-  EXPECT_EQ("some string and stream", ss.str());
+  EXPECT_EQ("some string and stream", stream.str());
 }
 
 TEST(String, ConstructAssign) {
