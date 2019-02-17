@@ -99,6 +99,7 @@ TEST(String, Find) {
   EXPECT_EQ(0, s1.Find("some"));
   
   EXPECT_EQ(9, String{"str stri string"}.Find(String{"string"}));
+  EXPECT_EQ(6, String{"strinsstring"}.Find(String{"string"}));
 
   EXPECT_EQ(static_cast<size_t>(-1), s1.Find("not found"));
 }
