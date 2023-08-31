@@ -46,7 +46,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
   "$<INSTALL_INTERFACE:include>"
 )
 
-target_link_libraries(demo ${PROJECT_NAME})
+target_link_libraries(sandbox ${PROJECT_NAME})
 
 if(BUILD_TESTS)
   add_executable(tests
@@ -82,7 +82,7 @@ endif()
 
 include(CPackConfig.cmake)
 
-install(TARGETS ${PROJECT_NAME} demo
+install(TARGETS ${PROJECT_NAME} sandbox
   EXPORT "${PROJECT_NAME}-targets"
   RUNTIME DESTINATION bin
   ARCHIVE DESTINATION lib
