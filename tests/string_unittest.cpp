@@ -78,6 +78,25 @@ TEST(String, Mult) {
   EXPECT_EQ(s2, String("ABCABCABCABCABCABCABCABCABC"));
 }
 
+TEST(String, Compare) {
+  String s1("AVeryLongStringThatStartsWithAnA");
+  String s2("Short");
+  EXPECT_LT(s1, s2);
+  EXPECT_GT(s2, s1);
+
+  s1 = String("TheseShouldBeEqual");
+  EXPECT_NE(s1, s2);
+  s2 = String("TheseShouldBeEqual");
+  EXPECT_EQ(s1, s2);
+  EXPECT_EQ(s2, s1);
+  EXPECT_GE(s1, s2);
+  EXPECT_LE(s1, s2);
+
+  s1 = String("TheseShouldStillBeEqual!");
+  s2 = String("TheseShouldStillBeEqual!\0  Beware the null-byte...");
+  EXPECT_EQ(s1, s2);
+}
+
 TEST(String, Trim) {
   String s("  abc   ____");
 

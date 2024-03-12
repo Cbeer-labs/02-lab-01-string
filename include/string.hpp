@@ -1,10 +1,11 @@
-// Copyright 2018 Your Name <your_email>
+// Copyright 2024 Your Name <your_email>
 
 #ifndef INCLUDE_STRING_HPP_
 #define INCLUDE_STRING_HPP_
 
 #include <cstddef>
 #include <iostream>
+#include <compare>
 
 class String {
  public:
@@ -17,6 +18,10 @@ class String {
   /// Конструктор копирования
   /// <param name="rhs">Объект, который копируем </param>
   String(const String& rhs);
+
+  /// Конструктор перемещения
+  /// <param name="rhs">Объект, который перемещаем </param>
+  String(String&& rhs);
 
   /// Пользовательский конструктор
   /// <param name="data">Данные, которые требуется поместить в создаваемый
@@ -37,15 +42,31 @@ class String {
   /// <returns>Возвращаем ссылку на себя</returns>
   String& operator*=(unsigned int m);
 
-  /// Оператор ==
-  /// <param name="rhs">Объект, который стоит после знака '==' </param>
-  /// <returns>Возвращаем значения равенства двух строк</returns>
-  bool operator==(const String& rhs) const;
+  /// Оператор +
+  /// <example>
+  /// <code>
+  /// String a = "Hello";
+  /// String b = "World";
+  /// String c = a + b; // c равна "HelloWorld"
+  /// </code>
+  /// </example>
+  /// <returns>Возвращаем строку равную a + b</returns>
+  String operator+(const String& b);
 
-  /// Оператор &lt;
-  /// <param name="rhs">Объект, который стоит после знака "&lt;" </param>
-  /// <returns>Возвращаем значения сравнения двух строк</returns>
-  bool operator<(const String& rhs) const;
+  /// Оператор +
+  /// <example>
+  /// <code>
+  /// String a = "A";
+  /// String c = a * 5; // c равна "AAAAA"
+  /// </code>
+  /// </example>
+  String operator*(unsigned int b);
+
+
+  /// Оператор <=>
+  /// <param name="rhs">Объект, который стоит после знаков сравнений </param>
+  /// <returns>Возвращаем отношение с rhs</returns>
+  std::strong_ordering operator<=>(const String& rhs) const;
 
   /// Функция поиска подстроки
   /// <param name="substr">Подстрока, которую необходимо найти </param>
@@ -112,34 +133,10 @@ class String {
   friend std::ostream& operator<<(std::ostream&, const String&);
 
  private:
-  char* Data;
+  char* _data;
+  size_t _size;
 };
 
-/// Оператор +
-/// <example>
-/// <code>
-/// String a = "Hello";
-/// String b = "World";
-/// String c = a + b; // c равна "HelloWorld"
-/// </code>
-/// </example>
-/// <returns>Возвращаем строку равную a + b</returns>
-String operator+(const String& a, const String& b);
-
-/// Оператор +
-/// <example>
-/// <code>
-/// String a = "A";
-/// String c = a * 5; // c равна "AAAAA"
-/// </code>
-/// </example>
-String operator*(const String& a, unsigned int b);
-
-/// Оператор !=
-bool operator!=(const String& a, const String& b);
-
-/// Оператор &gt;
-bool operator>(const String& a, const String& b);
 
 /// Оператор вывода
 /// <param name="out">Поток куда выводим строку </param>
